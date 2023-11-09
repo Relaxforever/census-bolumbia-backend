@@ -1,0 +1,23 @@
+{
+  "name": "census-bolumbia-backend",
+  "version": "1.0.0",
+  "description": "The census for our software engineer class",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Relaxforever/census-bolumbia-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Relaxforever/census-bolumbia-backend/issues"
+  },
+  "homepage": "https://github.com/Relaxforever/census-bolumbia-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
