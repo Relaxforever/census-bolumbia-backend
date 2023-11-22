@@ -14,7 +14,7 @@ export class LoginService {
   async validateLogin(loginRequest: LoginRequest): Promise<boolean> {
     const { cfn, ecn } = loginRequest;
     const property = await this.propertyRepository.findOne({
-      where: { CFN: cfn, ECN: ecn },
+      where: { cfn: cfn, ecn: ecn },
     });
 
     if (!property) {

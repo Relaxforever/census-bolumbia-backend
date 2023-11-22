@@ -4,16 +4,16 @@ import { Property } from './property.entity';
 @Entity()
 export class QuestionaryAnswer {
   @PrimaryGeneratedColumn()
-  idQuestionaryAnswer: number;
+  idquestionaryanswer: number;
 
   @Column()
-  isFormComplete: boolean;
+  isformcomplete: boolean;
 
   @Column({ type: 'json', nullable: true })
   answers: JSON;
 
   @ManyToOne(() => Property)
-  @JoinColumn({ name: 'ECN' })
+  @JoinColumn({ name: 'ecn' })
   property: Property;
 
   @Column({ type: 'timestamp' })
@@ -22,3 +22,4 @@ export class QuestionaryAnswer {
   @Column({ type: 'timestamp' })
   updated_time: Date;
 }
+

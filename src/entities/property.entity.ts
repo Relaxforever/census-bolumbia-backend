@@ -1,17 +1,18 @@
-import { Entity, Column, PrimaryColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { CensusCollector } from './census-collector.entity';
 
 @Entity()
 export class Property {
   @PrimaryColumn()
-  ECN: string;
+  ecn: string;
 
   @Column()
-  CFN: number;
+  cfn: number;
 
   @Column({ nullable: true })
-  Direction: string;
+  direction: string;
 
   @ManyToOne(() => CensusCollector)
-  censusCollector: CensusCollector;
+  @JoinColumn({ name: 'idcensuscollector' }) // Explicitly specifying the column name
+  censuscollector: CensusCollector;
 }
