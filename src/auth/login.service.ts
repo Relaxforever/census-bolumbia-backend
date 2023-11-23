@@ -1,7 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Property } from 'src/entities/property.entity'; // update the path as necessary
+import { Property } from 'src/entities/property.entity';
 import { LoginRequest } from './dto/login-request.dto';
 
 @Injectable()
@@ -11,16 +11,19 @@ export class LoginService {
     private propertyRepository: Repository<Property>,
   ) {}
 
-  async validateLogin(loginRequest: LoginRequest): Promise<boolean> {
+  async validateLogin(loginRequest: LoginRequest): Promise<any> { // Change return type as needed
     const { cfn, ecn } = loginRequest;
+
+    // Look for a Property record matching the login request
     const property = await this.propertyRepository.findOne({
-      where: { cfn: cfn, ecn: ecn },
+      where: { cfn, ecn },
     });
 
     if (!property) {
-      throw new NotFoundException('Invalid credentials');
+      throw new UnauthorizedException('Invalid login credentials');
     }
 
-    return true;
+    // Return the property data or any other relevant data
+    return property; // Adjust this to return the data you need
   }
 }

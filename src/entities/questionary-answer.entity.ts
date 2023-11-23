@@ -10,7 +10,7 @@ export class QuestionaryAnswer {
   isformcomplete: boolean;
 
   @Column({ type: 'json', nullable: true })
-  answers: JSON;
+  answers: any;
 
   @ManyToOne(() => Property)
   @JoinColumn({ name: 'ecn' })

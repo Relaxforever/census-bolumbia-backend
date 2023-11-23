@@ -3,6 +3,7 @@ import { CatsModule } from './cats/cats.module';
 import { LoggerMiddleware } from './logger.middleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
+import { QuestionaryModule } from './questionnaire/questionary.module';
 
 @Module({
   imports: [CatsModule,
@@ -16,7 +17,7 @@ import { AuthModule } from './auth/auth.module';
       entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true, // set to false in production
     }),
-    AuthModule],
+    AuthModule, QuestionaryModule],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
