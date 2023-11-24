@@ -15,7 +15,7 @@ export class LoginController {
         status: 'success',
         statusCode: HttpStatus.OK,
         message: 'Login successful',
-        data: data, // or just the necessary data
+        data:{ token: data }, // or just the necessary data
       };
     } catch (error) {
       return {
